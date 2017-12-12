@@ -14,7 +14,6 @@ const store =  new fromStore.Store(
   }
 );
 
-console.log(store.value);
 
 
 button.addEventListener(
@@ -23,8 +22,12 @@ button.addEventListener(
     if (!input.value.trim()) return;
 
     const payload = { label: input.value, complete: false };
-
-    console.log(payload);
+    
+    store.dispatch({
+      type: 'ADD_TODO',
+      payload   // shorthand of payload: payload
+    });
+    
 
     input.value = '';
   },

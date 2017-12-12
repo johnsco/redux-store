@@ -10,6 +10,14 @@ export class Store {
     get value() {
         return this.state;
     }
+
+    dispatch(action) {
+        this.state = {
+            ...this.state,
+            todos: [...this.state.todos, action.payload]
+        }; // immutability. Do not modify original object, create new object the merge in a copy.
+        console.log(this.state);
+    }
 }
 
 
